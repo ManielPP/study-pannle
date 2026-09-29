@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: study-panel-api
+    runtime: node
+    buildCommand: npm install --ignore-scripts
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: HOST
+        value: 0.0.0.0
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PANEL_ACCESS_TOKEN
+        generateValue: true
+      - key: OPENAI_MODEL
+        value: gpt-5-mini
+      - key: MAX_DAILY_REQUESTS
+        value: 100
